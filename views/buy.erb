@@ -4,9 +4,10 @@
   <ol>
     <% @menu.each_with_index do |item, i| %>
       <li><%= item[:name] %>
-        <input type="text" name="<%= item[:name] %>" size="2" value="<%= @order[i] %>"/>
+        <input type="text" name="<%= item[:name] %>" size="2" value="<%= @order[i] %>"/><%= @subtotal[i] %>
       </li>
     <% end %>
+    <li>Total: <%= @total %></li>
   </ol>
   <input type="submit" value="Confirm" />
 </form>

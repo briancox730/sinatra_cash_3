@@ -12,12 +12,21 @@ end
 post '/purchase' do
   @order = [params["Light"], params["Medium"], params["Bold"]]
   @menu = load_menu
+  @subtotal = subtotal(@order, @menu)
+  @total = total(@order, @menu)
   erb :buy
 end
 
 post '/confirm' do
   @order = [params["Light"], params["Medium"], params["Bold"]]
   @menu = load_menu
-  submit(params["Light"], params["Medium"], params["Bold"])
+  @total = total(@order, @menu)
+  @subtotal = subtotal(@order, @menu)
+  submit(@order, @menu, @total)
   erb :confirm
+end
+
+get '/orders' do
+
+  erb :orders
 end

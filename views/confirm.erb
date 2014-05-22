@@ -1,1 +1,7 @@
 <!-- confirmed order -->
+<ul>
+  <% @menu.each_with_index do |item, i| %>
+    <li><%= item[:name] %> <%= @order[i] %> <%= @subtotal[i] %></li>
+  <% end %>
+  <li>Total: <%= @total %></li>
+</ul>
