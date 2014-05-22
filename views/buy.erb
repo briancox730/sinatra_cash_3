@@ -1,0 +1,12 @@
+<!-- customer order -->
+<h3>Confirm Your Order</h3>
+<form action="/confirm" method="post">
+  <ol>
+    <% @menu.each_with_index do |item, i| %>
+      <li><%= item[:name] %>
+        <input type="text" name="<%= item[:name] %>" size="2" value="<%= @order[i] %>"/>
+      </li>
+    <% end %>
+  </ol>
+  <input type="submit" value="Confirm" />
+</form>

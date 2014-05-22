@@ -1,0 +1,13 @@
+<!-- home buy form -->
+<h3>Available Coffee</h3>
+<form action="/purchase" method="post">
+  <ol>
+    <% @menu.each do |item| %>
+      <li><%= item[:name] %> Roast
+        $<%= ('%.2f' % item[:wholesale_price]) %>
+        <input type="text" name="<%= item[:name] %>" size="1" />
+      </li>
+    <% end %>
+  </ol>
+  <input type="submit" value="Purchase" />
+</form>
